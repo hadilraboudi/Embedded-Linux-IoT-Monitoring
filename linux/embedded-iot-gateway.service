@@ -1,0 +1,16 @@
+[Unit]
+Description=Embedded Linux IoT Gateway
+After=systemd-udevd.service
+
+[Service]
+Type=simple
+User=hodhod
+WorkingDirectory=/home/hodhod/Embedded-IoT-Monitor
+
+ExecStart=/usr/bin/python3 -u /home/hodhod/Embedded-IoT-Monitor/iot_gateway.py
+
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
